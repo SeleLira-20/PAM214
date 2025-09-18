@@ -9,17 +9,35 @@
   <p id="mensaje"></p>
 
   <script>
-    // Código JavaScript integrado directamente en el HTML
+    
     let nombre = "Armando";
     let edad = 25;
     nombre = "Ana Maria";
     const saludo = "Hola, " + nombre + ". Tienes " + edad + " años.";
     
-    // Mostrar el saludo en la página
+    
     document.getElementById("mensaje").textContent = saludo;
 
-    // También lo mostramos en consola
+    
     console.log(saludo);
+    // --------- Función Cuadrado con Arrow Function ---------
+    const cuadrado = (numero) => numero * numero;
+
+    
+    console.log("Cuadrado de 2:", cuadrado(2));
+    console.log("Cuadrado de 5:", cuadrado(5));
+    console.log("Cuadrado de -3:", cuadrado(-3));
+    
+     // --------- NUEVA Arrow Function para saludo personalizado ---------
+    const saludoPersonalizado = (nombre, edad) => {
+      return `Hola, me llamo ${nombre} y tengo ${edad} años.`;
+    };
+
+    console.log(saludoPersonalizado("Selene", 19));
+
+    const parrafo = document.createElement("p");
+    parrafo.textContent = saludoPersonalizado("Selene", 19);
+    document.body.appendChild(parrafo);
   </script>
 </body>
 </html>
