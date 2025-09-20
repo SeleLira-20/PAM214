@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio A</title>
+</head>
+<body>
+  <h1>Ejercicio A</h1>
+
+  <script>
+    //ejercicio A
+    const persona = 
+    { 
+      nombre : "Selene Lira",
+      edad: 19,
+      direccion: 
+      { 
+        ciudad: "Qro",
+        Pais:"MX"
+      } 
+    };
+
+    const { nombre, edad, direccion: { ciudad } } = persona;
+
+    console.log("Me llamo " + nombre + ", tengo " + edad + " años y vivo en " + ciudad);
+  </script>
+</body>
+</html>
