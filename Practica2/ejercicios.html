@@ -2,19 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ejercicio A</title>
+  <title>Ejercicio A y B</title>
 </head>
 <body>
-  <h1>Ejercicio A</h1>
+  <h1>Ejercicios A y B</h1>
 
   <script>
-    //ejercicio A
-    const persona = 
-    { 
+    // ----- Ejercicio A ----
+    const persona = { 
       nombre : "Selene Lira",
       edad: 19,
-      direccion: 
-      { 
+      direccion: { 
         ciudad: "Qro",
         Pais:"MX"
       } 
@@ -23,6 +21,20 @@
     const { nombre, edad, direccion: { ciudad } } = persona;
 
     console.log("Me llamo " + nombre + ", tengo " + edad + " años y vivo en " + ciudad);
+
+    // ----- Ejercicio B ------
+    const productos = [  
+       { nombre: "Laptop",  precio: 12000 },
+       { nombre: "Mouse",   precio: 250 },
+       { nombre: "Teclado", precio: 750 },
+       { nombre: "Monitor", precio: 3000 }
+    ];
+
+    const filtrar = productos.filter(producto => producto.precio > 1000);
+
+    const articulo = filtrar.map(producto => producto.nombre);
+
+    console.log(articulo);
   </script>
 </body>
 </html>
