@@ -6,6 +6,7 @@
 </head>
 <body>
   <h1>Ejercicios A y B</h1>
+  <h1>Ejercicios A, B y C</h1>
 
   <script>
     // ----- Ejercicio A ----
@@ -30,11 +31,36 @@
        { nombre: "Monitor", precio: 3000 }
     ];
 
+    // filtra los productos con precio mayor a 1000
     const filtrar = productos.filter(producto => producto.precio > 1000);
 
+    // obtiene solo los nombres de los productos filtrados
     const articulo = filtrar.map(producto => producto.nombre);
 
     console.log(articulo);
+    // ----- Ejercicio C -----
+
+    const personas = 
+[
+    { nombre: "Ana", edad: 22},
+    { nombre: "Luis", edad: 35},
+    { nombre: "María", edad: 28}
+];
+
+const personaLuis = personas.find(persona => persona.nombre === "Luis");
+console.log("Persona encontrada:", personaLuis);
+
+personas.forEach(persona => 
+    {
+        console.log("Nombre: " + persona.nombre + " tiene: " + persona.edad);
+    });
+
+    const totalEdades = personas.reduce((acumulador, persona) => 
+        {
+            return acumulador + persona.edad;
+        }, 0);
+
+        console.log("Suma total de edades:", totalEdades);
   </script>
 </body>
 </html>
