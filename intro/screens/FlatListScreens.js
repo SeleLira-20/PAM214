@@ -1,11 +1,103 @@
-import { Text, StyleSheet, View } from 'react-native'
+import React from "react";
+import {View, Text, FlatList, SectionList, StyleSheet } from "react-native";
 
-export default function FlatListScreens () {
-  
+export default function FlatlistScreen() {
+    const estudiantes = [
+    { id: "1", nombre: "Ana" },
+    { id: "2", nombre: "Luis" },
+    { id: "3", nombre: "María" },
+    { id: "4", nombre: "Carlos" }
+    ];
+    const materias = [
+    {
+    titulo: "Matemáticas",
+    data: ["Ana", "Carlos"]
+    },
+    {
+    titulo: "Historia",
+    data: ["Luis", "María"]
+    },
+    {
+    titulo: "Programación",
+    data: ["Ana", "Luis", "María"]
+    }
+    ];
+
     return (
-      <View>
-        <Text> Proximamente by Carlos & equipo </Text>
+      <View style={styles.container}>
+      <Text style={styles.titulo}>FlatList (Lista simple)</Text>
+      <FlatList
+      data={estudiantes}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+      <Text style={styles.item}>{item.nombre}</Text>
+      )}
+      ListHeaderComponent={() => (
+          <Text style={styles.headerFooter}>Inicio de la lista de estudiantes</Text>
+        )}
+        ListFooterComponent={() => (
+          <Text style={styles.headerFooter}>Fin de la lista de estudiantes</Text>
+        )}
+      />
+
+      <Text style={[styles.titulo, { marginTop: 30 }]}>SectionList (Lista con secciones)</Text>
+      <SectionList
+      sections={materias}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({ item }) => <Text style={styles.item}>- {item}</Text>}
+      renderSectionHeader={({ section }) => (
+      <Text style={styles.sectionHeader}>{section.titulo}</Text>
+      )}
+      //stickySectionHeadersEnabled
+      ItemSeparatorComponent={() => (
+          <View style={styles.separator} />
+        )}
+        SectionSeparatorComponent={() => (
+          <View style={styles.sectionSeparator} />
+        )}
+
+      />
       </View>
     )
-  }
-const styles = StyleSheet.create({})
+}
+
+const styles = StyleSheet.create({
+      container: {
+      flex: 1,
+      padding: 20,
+      backgroundColor: "#F5F5F5"
+      },
+      titulo: {
+      fontSize: 20,
+      fontWeight: "bold",
+      marginBottom: 10
+      },
+      item: {
+      fontSize: 16,
+      backgroundColor: "#ffffff",
+      padding: 10,
+      marginVertical: 4,
+      borderRadius: 8
+      },
+      sectionHeader: {
+      fontSize: 18,
+      fontWeight: "bold",
+      backgroundColor: "#E0E0E0",
+      padding: 8,
+      marginTop: 10,
+      borderRadius: 8
+      },
+      separator: {
+      height: 8,
+      },
+      sectionSeparator: {
+      height: 15,
+      },
+      headerFooter: {
+        textAlign: 'center',
+        fontSize: 15,
+        fontStyle: 'italic',
+        color: '#555',
+        marginVertical: 6,
+      },
+});
