@@ -20,6 +20,7 @@ export default function Repaso() {
   const [aceptaTerminos, setAceptaTerminos] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
 
+  // fallback modal state (opcional)
   const [modalVisible, setModalVisible] = useState(false);
   const [modalText, setModalText] = useState("");
 
@@ -30,6 +31,7 @@ export default function Repaso() {
 
   const showAlert = (title, message) => {
     if (Platform.OS === "web") {
+      // fallback simple para web
       window.alert(`${title}\n\n${message}`);
       return;
     }
@@ -48,7 +50,9 @@ export default function Repaso() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (nombre.trim() === "") {
+      // usa showAlert o modal según prefieras
       showAlert("Error", "Por favor coloca el nombre.");
+      // showModalFallback("Error", "Por favor coloca el nombre.");
       return;
     }
     if (correo.trim() === "") {
