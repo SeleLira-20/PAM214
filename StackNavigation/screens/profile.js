@@ -1,11 +1,11 @@
-import{View, Text, Pressable, StyleSheet} from 'react-native';
+ import{View, Text, Pressable, StyleSheet} from 'react-native';
 
-export default function Settings({navigation}){
+export default function Profile({navigation}){
     return(
         <View style={styles.container}>
-                <Text style={styles.title}>Pantalla de Configuración</Text>
-                <Pressable style={[styles.button, styles.buttonProfile]} onPress={() => navigation.navigate('Profile')}>
-                <Text style={styles.buttonText}>Ir a Perfil</Text>
+                <Text style={styles.title}>Pantalla de Perfil</Text>
+                <Pressable style={[styles.button, styles.buttonSettings]} onPress={() => navigation.navigate('Settings')}>
+                <Text style={styles.buttonText}>Ir a Configuración</Text>
                 </Pressable>
                 <Pressable style={[styles.button, styles.buttonHome]} onPress={() => navigation.navigate('Home')}>
                 <Text style={styles.buttonText}>Volver a Home</Text>
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
         width: '80%',
         alignItems: 'center',
     },
-    buttonProfile:{
-        backgroundColor: '#007BFF',
+    buttonSettings:{
+        backgroundColor: '#FF8800',
     },
     buttonHome:{
         backgroundColor: '#28A745',
